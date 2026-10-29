@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+<body>
+<form>
+<!-- TODO: reCAPTCHA site key verwijderd. Werkt niet meer: de captcha laadt niet zonder key. -->
+<div class="g-recaptcha" data-sitekey=""></div>
+<input type="button" id="btn">
+</form>
+<script>
+
+    var mail = {
+        "name":"Bart",
+        "email":"test@example.com",
+        "subject":"test",
+        "message":"dit is een test"
+    };
+
+    $("#btn").click(function() {
+        if (grecaptcha.getResponse() != "") {
+            $.ajax({
+                type: "POST",
+                url: "mail.php",
+                data: {mail: mail, captcha:grecaptcha.getResponse()}
+            })
+        }
+        else {
+            console.log(grecaptcha.getResponse());
+        }
+    });
+
+</script>
+</body>
+</html>

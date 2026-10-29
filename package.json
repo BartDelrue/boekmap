@@ -1,0 +1,19 @@
+{
+  "name": "boekmap",
+  "version": "2.0.0",
+  "description": "Nederlandstalige fictie op de kaart: OpenStreetMap + Open Library",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch --env-file-if-exists=.env server.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "fast-xml-parser": "^5.11.2",
+    "mongodb": "^7.6.0"
+  }
+}

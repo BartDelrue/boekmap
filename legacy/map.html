@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Place searches</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 600px;
+            width: 100%;
+            position: absolute !important;
+        }
+        .controls {
+            margin-top: 10px;
+            border: 1px solid transparent;
+            border-radius: 2px 0 0 2px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            height: 32px;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        }
+        #pac-input {
+            background-color: #fff;
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+            margin-left: 12px;
+            padding: 0 11px 0 13px;
+            text-overflow: ellipsis;
+            width: 300px;
+            position: absolute;
+
+        }
+
+        #pac-input:focus {
+            border-color: #4d90fe;
+        }
+
+        .pac-container {
+            font-family: Roboto;
+        }
+
+        #type-selector {
+            color: #fff;
+            background-color: #4d90fe;
+            padding: 5px 11px 0px 11px;
+        }
+
+        #type-selector label {
+            font-family: Roboto;
+            font-size: 13px;
+            font-weight: 300;
+        }
+
+        div.gm-style-iw{
+            width:240px !important;
+        }
+
+        #loading-container{
+            position: absolute;
+            display: block;
+            left: 50%;
+            margin: -120px 0 0 -120px;
+            top: 50%;
+            width: 240px;
+            text-align: center;
+        }
+        .loading {
+            border-left: 3px solid rgba(255, 255, 255, 0);
+            border-right: 3px solid rgba(255, 255, 255, 0);
+            border-bottom: 3px solid rgba(255, 255, 255, 1);
+            border-top: 3px solid rgba(255, 255, 255, 1);
+            border-radius: 100%;
+            height: 50px;
+            width:50px;
+            margin: 0 auto;
+            animation: spin 1.5s infinite ease;
+            -webkit-animation: spin 1s infinite ease;
+        }
+        #expl{
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        #results{
+            height: 20px ;
+            border: 1px solid white;
+            overflow: hidden;
+        }
+        #markers{
+            background: rgba(255,255,255,0.5);
+            height: inherit;
+            width: 1px;;
+        }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        @-webkit-keyframes spin {
+            from { -webkit-transform: rotate(0deg); }
+            to { -webkit-transform: rotate(360deg); }
+        }
+        #map-overlay{
+            height: 100%;
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            background: rgba(1,1,1,0.8);
+            position: absolute;
+            font-family: Roboto, sans-serif;
+            font-size: 15px;
+            font-weight: 300;
+            color: white;
+        }
+        #map-container{
+            height: 600px;
+            position: relative;
+        }
+        #details{
+            display: none;
+        }
+        #loading-button{
+            font-family: Roboto, sans-serif;
+            font-size: 15px;
+            font-weight: 300;
+            background: transparent;
+            border: 1px solid white;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            margin-top: 50px;
+            -webkit-transition: background 1s; /* Safari */
+            transition: background 1s;
+        }
+        #loading-button:hover{
+            background: rgba(255,255,255,0.2);
+
+        }
+
+    </style>
+</head>
+<body>
+<div id="map-container">
+
+    <div id="map">
+
+    </div>
+    <input id="pac-input" class="controls" type="text"
+           placeholder="Enter a location">
+    <div id="map-overlay">
+        <div id="loading-container">
+            <div class="loading"></div>
+            <div id="expl">Gekende locaties verzamelen...</div>
+            <div id="details">
+                <div id="results">
+                    <div id="markers"></div>
+                </div>
+                <input id="loading-button" type="button" value="Ik kan niet meer wachten...">
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<div id="count">
+</div>
+
+<div id="test">
+
+
+</div>
+
+<script>
+
+    var map = null;
+
+    var mc = null;
+    var mcSteden = null;
+    var mcLanden = null;
+    var mcRegios = null;
+
+    var infowindow;
+    var input = null;
+    var autocomplete = null;
+
+    var arrMarkers = null;
+    var arrStadMarkers= [];
+    var arrLandMarkers= [];
+    var arrRegioMakers= [];
+
+    var locations = [];
+    locationHistory = JSON.parse('[{"name":"Gent","id":"ChIJrUOUM-Fww0cRQFFNL6uZAAQ","type":"locality","lat":51.05434220000001,"lng":3.717424299999948},{"name":"Brussel","id":"ChIJZ2jHc-2kw0cRpwJzeGY6i8E","type":"locality","lat":50.8503396,"lng":4.351710300000036},{"name":"Oostende","id":"ChIJlaWVGNOo3EcRQpiDCfDblz4","type":"locality","lat":51.21543,"lng":2.9286560000000463},{"name":"Brugge","id":"ChIJDUIewdBQw0cR902DyFrzoho","type":"locality","lat":51.209348,"lng":3.2246995000000425},{"name":"Nederland","id":"ChIJu-SH28MJxkcRnwq9_851obM","type":"country","lat":52.13263300000001,"lng":5.2912659999999505},{"name":"België","id":"ChIJl5fz7WR9wUcR8g_mObTy60c","type":"country","lat":50.503887,"lng":4.4699359999999615},{"name":"Antwerpen","id":"ChIJfYjDv472w0cRuIqogoRErz4","type":"locality","lat":51.2194475,"lng":4.40246430000002},{"name":"Dover","id":"ChIJ_zIzVdGk3kcRUUjXWodceDI","type":"locality","lat":51.1278758,"lng":1.3134026999999833},{"name":"Keulen","id":"ChIJ5S-raZElv0cR8HcqSvxgJwQ","type":"locality","lat":50.937531,"lng":6.960278600000038},{"name":"Londen","id":"ChIJdd4hrwug2EcRmSrV3Vo6llI","type":"locality","lat":51.5073509,"lng":-0.12775829999998223},{"name":"Amsterdam","id":"ChIJVXealLU_xkcRja_At0z9AGY","type":"locality","lat":52.3702157,"lng":4.895167899999933},{"name":"Rotterdam","id":"ChIJfcRUX2C3xUcRhUtelay7KVI","type":"locality","lat":51.9244201,"lng":4.477732500000002},{"name":"Parijs","id":"ChIJD7fiBh9u5kcRYJSMaMOCCwQ","type":"locality","lat":48.85661400000001,"lng":2.3522219000000177},{"name":"Frankrijk","id":"ChIJMVd4MymgVA0R99lHx5Y__Ws","type":"country","lat":46.227638,"lng":2.213749000000007}]');
+
+    var initExisting = true;
+
+    var countResults = 0;
+    var countLoadedCovers = 0;
+    var countErrorCovers = 0;
+    var totalResults = 0;
+
+    //aantal boeken tellen
+    var localCount = locationHistory.length;
+    var localBookCount = 0;
+
+    $("#loading-button").click(function () {
+        $("#map-overlay").fadeOut();
+    });
+
+    function initMap() {
+
+        var mapOptions = {
+            center: {lat: 53.3, lng: 3.42},
+            zoom: 5,
+            mapTypeControl: false
+        };
+        map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+        var clusterStylesLand = [
+            {
+                textColor: 'white',
+                url: 'http://www.veryicon.com/icon/48/System/Small%20%26%20Flat/book.png',
+                height: 48,
+                width: 48
+            }
+        ];
+        var mcOptionsLand = {
+            gridSize: 60,
+            maxZoom: 14,
+            styles: clusterStylesLand
+        };
+        var clusterStylesRegio = [
+            {
+                textColor: 'black',
+                url: 'http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/48/bookshelf-icon.png',
+                height: 48,
+                width: 48
+            }
+        ];
+        var mcOptionsRegio = {
+            gridSize: 60,
+            maxZoom: 11,
+            styles: clusterStylesRegio
+        };
+        var clusterStylesStad = [
+            {
+                textColor: 'black',
+                url: 'http://icons.iconarchive.com/icons/elegantthemes/beautiful-flat-one-color/48/bookshelf-icon.png',
+                height: 48,
+                width: 48
+            }
+        ];
+        var mcOptionsStad = {
+            gridSize: 60,
+            maxZoom: 14,
+            styles: clusterStylesStad
+        };
+        mcSteden = new MarkerClusterer(map, [], mcOptionsStad);
+        mcLanden = new MarkerClusterer(map, [], mcOptionsLand);
+        mcRegios = new MarkerClusterer(map, [], mcOptionsRegio);
+
+        google.maps.event.addListener(mcSteden, 'clusterclick', function (cluster) {
+            map.setCenter(cluster.getCenter());
+            map.setZoom(14);
+        });
+        google.maps.event.addListener(mcLanden, 'clusterclick', function (cluster) {
+            map.setCenter(cluster.getCenter());
+            map.setZoom(9);
+        });
+        google.maps.event.addListener(mcRegios, 'clusterclick', function (cluster) {
+            map.setCenter(cluster.getCenter());
+            map.setZoom(11);
+        });
+
+        input = (document.getElementById('pac-input'));
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+        autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', map);
+        autocomplete.setTypes(['(regions)']);
+        autocomplete.addListener('place_changed', placeChanged);
+
+        infowindow = new google.maps.InfoWindow();
+
+        jQuery.each(locationHistory, function (i) {
+            // laatste boek onderscheppen
+            getbooks(this);
+        });
+
+    }
+
+    function placeChanged(){
+        infowindow.close();
+
+        initExisting = false;
+
+        var place = autocomplete.getPlace();
+        if (!place.geometry) return;
+
+        map.setCenter(place.geometry.location);
+
+        var simplePlace = {
+            name: place.address_components[0].long_name ,
+            id: place.place_id,
+            type:place.address_components[0].types[0],
+            lat:place.geometry.location.lat(),
+            lng:place.geometry.location.lng() };
+
+        if (simplePlace.type == 'country')
+            map.setZoom(9);
+
+        else if (simplePlace.type == 'locality')
+            map.setZoom(14);
+
+        else
+            map.setZoom(11);
+
+        var isExistingLocation = false;
+
+        jQuery.each(locations,function(){
+            if (this.id == place.place_id) isExistingLocation = true; return;
+        });
+
+        if(isExistingLocation == false) getbooks(simplePlace);
+    }
+
+    function getbooks(place) {
+        $.ajax({
+            type: "GET",
+            url: "boeken_subject.php?subject=" + place.name,
+            dataType: "xml",
+            success: function (xml) {createBookMarkers(xml, place);}
+        });
+    }
+
+    function placeBookMarkers(res,i,place,img){
+
+        var disperseBooks;
+
+        if (place.type == 'country')
+        {   if (initExisting == false) map.setZoom(9);
+            disperseBooks = {la:1.2, lo:3.4, dst:0.25};
+            arrMarkers = arrLandMarkers;
+            mc = mcLanden;
+        }
+        else if (place.type == 'locality')
+        {
+            if (initExisting == false) map.setZoom(14);
+            disperseBooks = {la:40, lo:100, dst:0.01};
+            arrMarkers = arrStadMarkers;
+            mc = mcSteden;
+        }
+        else
+        {
+            if (initExisting == false) map.setZoom(11);
+            disperseBooks = {la:6, lo:15, dst:0.02};
+            arrMarkers = arrRegioMakers;
+            mc = mcRegios;
+        }
+
+        var title = $(res).find("title").text();
+
+        var position = {
+            lat: place.lat + (((i/3) % 1).toFixed(1) / disperseBooks.la) - disperseBooks.dst,
+            lng: place.lng + (Math.floor(i/3) / disperseBooks.lo) - disperseBooks.dst*2
+        };
+
+        var icon = {
+            url: img.src //$(res).find("coverimage").find("url").text()
+        };
+
+        var marker = new google.maps.Marker({
+            position: position,
+            map: map,
+            title: title,
+            icon: icon,
+            zIndex: Math.round(position.lat * -100000) << 5
+        });
+
+        marker.addListener('click', function() {
+            infowindow.setContent(
+                    "<div class='bookDetails'>" +
+                    "<h2>" + title + "</h2>" +
+                    "<p><em>"+ $(res).find("main-author").text() + "</em>" +
+                    "<br/> ( "+ $(res).find("publisher").text() + " - " + $(res).find("isbn-id").text() +" )" + "</p>" +
+                    "<p>"+ $(res).find("summary").text() +"</p>" +
+                    "<a target='_blank' href='" + $(res).find("detail-page").text() + "'>" + "Details en beschikbaarheid" + "</a>" +
+                    "</div>"
+            );
+            infowindow.open(map,marker);
+        });
+
+        arrMarkers.push(marker);
+
+        mc.addMarkers(arrMarkers, true);
+
+    }
+
+    function niksGevonden(place){
+
+        var marker = new google.maps.Marker({
+            position: {lat: place.lat, lng: place.lng},
+            map: map,
+            title: "Niks Gevonden",
+            icon: {url: "http://maps.google.com/mapfiles/ms/icons/red-dot.png", size:new google.maps.Size(1,1)}
+        });
+
+        infowindow.setContent("<h3> geen boeken gevonden </h3>");
+        infowindow.open(map,marker);
+    }
+
+    function createBookMarkers(xml, place){
+
+        if(!$(xml).find("results").length){niksGevonden(place); return;}
+
+        localBookCount+= $(xml).find("result").length;
+        localCount--;
+
+        var countBooks = 0;
+
+        $(xml).find("results").each(function () {
+
+            var results = $(this).find("result");
+
+            countResults += results.length;
+
+            if (localCount == 0){
+                totalResults = localBookCount;
+                $("#expl").html("Covers laden");
+                $("#details").fadeIn();
+            }
+
+            results.each(function (i) {
+
+                var res = this;
+
+                var img = new Image();
+                img.src = $(res).find("coverimage").find("url").text();
+
+                img.onerror = function () {
+                    countErrorCovers ++;
+                    $("#markers").width(($("#results").width()/totalResults) * (countErrorCovers + countLoadedCovers));
+
+                    if (totalResults == (countErrorCovers + countLoadedCovers)) {
+                        $("#map-overlay").fadeOut();
+                        map.panBy(1, 1);
+                        console.log(totalResults);
+                    }
+                };
+
+                img.onload = function () {
+
+                    if (img.width < 10){ countErrorCovers ++;}
+                    else{
+                        countLoadedCovers ++;
+                        countBooks ++;
+                        placeBookMarkers(res, countBooks, place, img);}
+
+                    $("#markers").width(($("#results").width()/totalResults) * (countErrorCovers + countLoadedCovers));
+                    if (totalResults == (countErrorCovers + countLoadedCovers)) {
+                        $("#map-overlay").fadeOut();
+                        map.panBy(1, 1);
+                    }
+                };
+
+            });
+
+        });
+
+        locations.push(place);
+        //$("#test").html(JSON.stringify(locations));
+    }
+
+</script>
+
+
+<!-- TODO: Google Maps API-key verwijderd (secret). Werkt niet meer: de kaart laadt niet zonder key. Nieuwe versie gebruikt OpenStreetMap. -->
+<script src="https://maps.googleapis.com/maps/api/js?key=&signed_in=true&libraries=places&callback=initMap"
+        async defer></script>
+
+
+</body>
+</html>

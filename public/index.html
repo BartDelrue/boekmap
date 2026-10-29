@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Nederlandstalige boeken op de kaart, per stad, land of regio.">
+    <title>Boekmap</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/ol@10.10.0/ol.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a class="brand" href="#top">Boekmap</a>
+    <ul>
+        <li><a href="#about">Introductie</a></li>
+        <li><a href="#map-container">De kaart</a></li>
+    </ul>
+</nav>
+
+<header class="intro" id="top">
+    <div>
+        <h1>Boekmap</h1>
+        <p class="intro-text"><em>"That's the thing about books, they let you travel without moving your feet."</em><br>Jhumpa Lahiri</p>
+        <a href="#about" class="btn-down" aria-label="Naar de introductie"></a>
+    </div>
+</header>
+
+<section id="about">
+    <div class="about-image"></div>
+    <div class="about-text">
+        <h2><em>Over</em> Boekmap</h2>
+        <h3>Een bibliotheek - OpenStreetMap mashup</h3>
+        <p>Droom je ook van verre reizen of zoek je een boek dat past bij je bestemming?</p>
+        <p>Voor u verzamelt Boekmap Nederlandstalige fictie met als onderwerp een stad, land of regio.
+            De app maakt hiervoor dankbaar gebruik van de <a href="https://www.cultuurconnect.be/diensten/apis">Cultuurconnect API</a> en van <a href="https://www.openstreetmap.org/">OpenStreetMap.</a></p>
+        <h3>Crowd sourced</h3>
+        <p>Boekmap groeit!</p>
+        <p>De succesvolle zoekresultaten van elke gebruiker worden bijgehouden in onze database.
+            Staan er bij jouw bestemming nog geen boeken? <b>Gebruik ons zoekveld en vul de kaart aan!</b></p>
+        <div class="legend">
+            <div><img src="img/icons/country.png" alt=""><span class="text-btn">Land</span></div>
+            <div><img src="img/icons/city.png" alt=""><span class="text-btn">Stad</span></div>
+            <div><img src="img/icons/region.png" alt=""><span class="text-btn">Regio</span></div>
+        </div>
+    </div>
+</section>
+
+<section id="map-container">
+    <div id="map"></div>
+    <form id="search" autocomplete="off">
+        <input id="search-input" type="search" placeholder="Enter a location" aria-label="Zoek een locatie">
+        <ul id="search-results" hidden></ul>
+    </form>
+    <div id="message" class="msg-box" hidden></div>
+    <div id="popup" class="popup">
+        <button type="button" class="popup-close" aria-label="Sluiten">&times;</button>
+        <div class="popup-content"></div>
+    </div>
+</section>
+
+<footer>
+    <p>Created by <a href="https://ctrlaltderlue.be">Bart Delrue</a> - Met dank aan <a href="https://www.cultuurconnect.be/">www.cultuurconnect.be</a></p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/ol@10.10.0/dist/ol.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

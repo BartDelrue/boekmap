@@ -1,0 +1,758 @@
+[
+  {
+    "_id": "R1920901",
+    "name": "Edinburgh",
+    "type": "city",
+    "lat": 55.9533456,
+    "lng": -3.1883749
+  },
+  {
+    "_id": "R58437",
+    "name": "Wales",
+    "type": "region",
+    "lat": 52.2928116,
+    "lng": -3.73893
+  },
+  {
+    "_id": "R1109531",
+    "name": "Dublin",
+    "type": "city",
+    "lat": 53.3493795,
+    "lng": -6.2605593
+  },
+  {
+    "_id": "R62273",
+    "name": "Ierland",
+    "type": "country",
+    "lat": 52.865196,
+    "lng": -7.9794599
+  },
+  {
+    "_id": "R50046",
+    "name": "Denemarken",
+    "type": "country",
+    "lat": 55.670249,
+    "lng": 10.3333283
+  },
+  {
+    "_id": "R62782",
+    "name": "Hamburg",
+    "type": "city",
+    "lat": 53.5501721,
+    "lng": 10.0013165
+  },
+  {
+    "_id": "R51477",
+    "name": "Duitsland",
+    "type": "country",
+    "lat": 51.1638175,
+    "lng": 10.4478313
+  },
+  {
+    "_id": "R62422",
+    "name": "Berlijn",
+    "type": "city",
+    "lat": 52.5173885,
+    "lng": 13.3951309
+  },
+  {
+    "_id": "R336074",
+    "name": "Warschau",
+    "type": "city",
+    "lat": 52.2333742,
+    "lng": 21.0711489
+  },
+  {
+    "_id": "R49715",
+    "name": "Polen",
+    "type": "country",
+    "lat": 52.215933,
+    "lng": 19.134422
+  },
+  {
+    "_id": "R102269",
+    "name": "Moskou",
+    "type": "city",
+    "lat": 55.625578,
+    "lng": 37.6063916
+  },
+  {
+    "_id": "R347950",
+    "name": "Barcelona",
+    "type": "city",
+    "lat": 41.3825802,
+    "lng": 2.177073
+  },
+  {
+    "_id": "R7444",
+    "name": "Parijs",
+    "type": "city",
+    "lat": 48.8588897,
+    "lng": 2.320041
+  },
+  {
+    "_id": "R41485",
+    "name": "Rome",
+    "type": "city",
+    "lat": 41.8933203,
+    "lng": 12.4829321
+  },
+  {
+    "_id": "R76910",
+    "name": "Corsica",
+    "type": "region",
+    "lat": 42.188098,
+    "lng": 9.0683139
+  },
+  {
+    "_id": "R5326784",
+    "name": "Madrid",
+    "type": "city",
+    "lat": 40.416782,
+    "lng": -3.703507
+  },
+  {
+    "_id": "R109166",
+    "name": "Wenen",
+    "type": "city",
+    "lat": 48.2083537,
+    "lng": 16.3725042
+  },
+  {
+    "_id": "R28699",
+    "name": "Georgië",
+    "type": "country",
+    "lat": 41.8441368,
+    "lng": 43.8212482
+  },
+  {
+    "_id": "R186382",
+    "name": "Bulgarije",
+    "type": "country",
+    "lat": 42.6073975,
+    "lng": 25.4856617
+  },
+  {
+    "_id": "R51701",
+    "name": "Zwitserland",
+    "type": "country",
+    "lat": 46.7985624,
+    "lng": 8.2319736
+  },
+  {
+    "_id": "R16239",
+    "name": "Oostenrijk",
+    "type": "country",
+    "lat": 47.59397,
+    "lng": 14.12456
+  },
+  {
+    "_id": "R2202162",
+    "name": "Frankrijk",
+    "type": "country",
+    "lat": 46.603354,
+    "lng": 1.8883335
+  },
+  {
+    "_id": "R1311341",
+    "name": "Spanje",
+    "type": "country",
+    "lat": 39.3260685,
+    "lng": -4.8379791
+  },
+  {
+    "_id": "R295480",
+    "name": "Portugal",
+    "type": "country",
+    "lat": 39.6621648,
+    "lng": -8.1353519
+  },
+  {
+    "_id": "R349044",
+    "name": "Andalusië",
+    "type": "region",
+    "lat": 37.3399964,
+    "lng": -4.5811614
+  },
+  {
+    "_id": "N299617915",
+    "name": "Algiers",
+    "type": "city",
+    "lat": 36.7729333,
+    "lng": 3.0588445
+  },
+  {
+    "_id": "R5400890",
+    "name": "Lissabon",
+    "type": "city",
+    "lat": 38.7077507,
+    "lng": -9.1365919
+  },
+  {
+    "_id": "R192307",
+    "name": "Griekenland",
+    "type": "country",
+    "lat": 38.9953683,
+    "lng": 21.9877132
+  },
+  {
+    "_id": "R394037",
+    "name": "Oxford",
+    "type": "city",
+    "lat": 51.7520131,
+    "lng": -1.2578499
+  },
+  {
+    "_id": "N21421224",
+    "name": "Dover",
+    "type": "city",
+    "lat": 51.1251275,
+    "lng": 1.3134228
+  },
+  {
+    "_id": "R62578",
+    "name": "Keulen",
+    "type": "city",
+    "lat": 50.938361,
+    "lng": 6.959974
+  },
+  {
+    "_id": "R52411",
+    "name": "België",
+    "type": "country",
+    "lat": 50.6402809,
+    "lng": 4.6667145
+  },
+  {
+    "_id": "R2323309",
+    "name": "Nederland",
+    "type": "country",
+    "lat": 52.2434979,
+    "lng": 5.6343227
+  },
+  {
+    "_id": "R562654",
+    "name": "Brugge",
+    "type": "city",
+    "lat": 51.2085526,
+    "lng": 3.226772
+  },
+  {
+    "_id": "R1292909",
+    "name": "Oostende",
+    "type": "city",
+    "lat": 51.2258565,
+    "lng": 2.919496
+  },
+  {
+    "_id": "R897671",
+    "name": "Gent",
+    "type": "city",
+    "lat": 51.0538286,
+    "lng": 3.7250121
+  },
+  {
+    "_id": "R59518",
+    "name": "Antwerpen",
+    "type": "city",
+    "lat": 51.2211097,
+    "lng": 4.3997081
+  },
+  {
+    "_id": "R406091",
+    "name": "Oslo",
+    "type": "city",
+    "lat": 59.9133301,
+    "lng": 10.7389701
+  },
+  {
+    "_id": "N25929985",
+    "name": "Stockholm",
+    "type": "city",
+    "lat": 59.3251172,
+    "lng": 18.0710935
+  },
+  {
+    "_id": "R52822",
+    "name": "Zweden",
+    "type": "country",
+    "lat": 59.6749712,
+    "lng": 14.5208584
+  },
+  {
+    "_id": "R34914",
+    "name": "Helsinki",
+    "type": "city",
+    "lat": 60.1666204,
+    "lng": 24.9435408
+  },
+  {
+    "_id": "R2978650",
+    "name": "Noorwegen",
+    "type": "country",
+    "lat": 61.1529386,
+    "lng": 8.7876653
+  },
+  {
+    "_id": "R337422",
+    "name": "Sint-Petersburg",
+    "type": "city",
+    "lat": 59.9606739,
+    "lng": 30.1586551
+  },
+  {
+    "_id": "R54224",
+    "name": "Finland",
+    "type": "country",
+    "lat": 63.2467777,
+    "lng": 25.9209164
+  },
+  {
+    "_id": "R175342",
+    "name": "Londen",
+    "type": "city",
+    "lat": 51.5074456,
+    "lng": -0.1277653
+  },
+  {
+    "_id": "R20113191",
+    "name": "Brussel",
+    "type": "city",
+    "lat": 50.8551025,
+    "lng": 4.3510915
+  },
+  {
+    "_id": "R196311",
+    "name": "Leuven",
+    "type": "city",
+    "lat": 50.879202,
+    "lng": 4.7011675
+  },
+  {
+    "_id": "R62630",
+    "name": "Mainz",
+    "type": "city",
+    "lat": 49.9995205,
+    "lng": 8.2736253
+  },
+  {
+    "_id": "R1411101",
+    "name": "Rotterdam",
+    "type": "city",
+    "lat": 51.9244424,
+    "lng": 4.47775
+  },
+  {
+    "_id": "R419203",
+    "name": "Utrecht",
+    "type": "city",
+    "lat": 52.0907006,
+    "lng": 5.1215634
+  },
+  {
+    "_id": "R271110",
+    "name": "Amsterdam",
+    "type": "city",
+    "lat": 52.3730796,
+    "lng": 4.8924534
+  },
+  {
+    "_id": "R191645",
+    "name": "Dresden",
+    "type": "city",
+    "lat": 51.0493286,
+    "lng": 13.7381437
+  },
+  {
+    "_id": "R435514",
+    "name": "Praag",
+    "type": "city",
+    "lat": 50.0874654,
+    "lng": 14.4212535
+  },
+  {
+    "_id": "R44741",
+    "name": "Venetië",
+    "type": "city",
+    "lat": 45.4371908,
+    "lng": 12.3345898
+  },
+  {
+    "_id": "R170100",
+    "name": "Nice",
+    "type": "city",
+    "lat": 43.7009358,
+    "lng": 7.2683912
+  },
+  {
+    "_id": "R299133",
+    "name": "IJsland",
+    "type": "country",
+    "lat": 64.9841821,
+    "lng": -18.1059013
+  },
+  {
+    "_id": "R912940",
+    "name": "Peking",
+    "type": "city",
+    "lat": 39.9057136,
+    "lng": 116.3912972
+  },
+  {
+    "_id": "R60189",
+    "name": "Rusland",
+    "type": "country",
+    "lat": 64.6863136,
+    "lng": 97.7453061
+  },
+  {
+    "_id": "R20044132",
+    "name": "Hongkong",
+    "type": "city",
+    "lat": 22.2818333,
+    "lng": 114.1582831
+  },
+  {
+    "_id": "R536807",
+    "name": "Sri Lanka",
+    "type": "country",
+    "lat": 7.5554942,
+    "lng": 80.7137847
+  },
+  {
+    "_id": "R1473946",
+    "name": "Israël",
+    "type": "country",
+    "lat": 30.8124247,
+    "lng": 34.8594762
+  },
+  {
+    "_id": "R2361304",
+    "name": "Tsjaad",
+    "type": "country",
+    "lat": 15.6134137,
+    "lng": 19.0156172
+  },
+  {
+    "_id": "R192758",
+    "name": "Libië",
+    "type": "country",
+    "lat": 26.8234472,
+    "lng": 18.1236723
+  },
+  {
+    "_id": "R13834513",
+    "name": "Marokko",
+    "type": "country",
+    "lat": 31.79,
+    "lng": -7.09
+  },
+  {
+    "_id": "R1116270",
+    "name": "Alaska",
+    "type": "region",
+    "lat": 64.4459613,
+    "lng": -149.680909
+  },
+  {
+    "_id": "R61549",
+    "name": "Québec",
+    "type": "region",
+    "lat": 52.4760892,
+    "lng": -71.8258668
+  },
+  {
+    "_id": "R5750005",
+    "name": "Sydney",
+    "type": "city",
+    "lat": -33.8698439,
+    "lng": 151.2082848
+  },
+  {
+    "_id": "R114686",
+    "name": "Mexico",
+    "type": "country",
+    "lat": 23.6585116,
+    "lng": -102.0077097
+  },
+  {
+    "_id": "R59470",
+    "name": "Brazilië",
+    "type": "country",
+    "lat": -10.3333333,
+    "lng": -53.2
+  },
+  {
+    "_id": "R4072985",
+    "name": "Casablanca",
+    "type": "city",
+    "lat": 33.5945144,
+    "lng": -7.6200284
+  },
+  {
+    "_id": "R556706",
+    "name": "Nieuw-Zeeland",
+    "type": "country",
+    "lat": -41.5000831,
+    "lng": 172.8344077
+  },
+  {
+    "_id": "R303427",
+    "name": "Afghanistan",
+    "type": "country",
+    "lat": 33.7680065,
+    "lng": 66.2385139
+  },
+  {
+    "_id": "R307584",
+    "name": "Saoedi-Arabië",
+    "type": "country",
+    "lat": 25.6242618,
+    "lng": 42.3528328
+  },
+  {
+    "_id": "R195270",
+    "name": "Tanzania",
+    "type": "country",
+    "lat": -6.5247123,
+    "lng": 35.7878438
+  },
+  {
+    "_id": "R21281999",
+    "name": "Kenia",
+    "type": "country",
+    "lat": 0.2793165,
+    "lng": 37.5164935
+  },
+  {
+    "_id": "R192796",
+    "name": "Oeganda",
+    "type": "country",
+    "lat": 1.5333554,
+    "lng": 32.2166578
+  },
+  {
+    "_id": "R195271",
+    "name": "Zambia",
+    "type": "country",
+    "lat": -14.5189121,
+    "lng": 27.5589884
+  },
+  {
+    "_id": "R192787",
+    "name": "Nigeria",
+    "type": "country",
+    "lat": 9.6000359,
+    "lng": 7.9999721
+  },
+  {
+    "_id": "R195273",
+    "name": "Mozambique",
+    "type": "country",
+    "lat": -19.302233,
+    "lng": 34.9144977
+  },
+  {
+    "_id": "R192785",
+    "name": "Mali",
+    "type": "country",
+    "lat": 16.3700359,
+    "lng": -2.2900239
+  },
+  {
+    "_id": "R192786",
+    "name": "Niger",
+    "type": "country",
+    "lat": 17.7356214,
+    "lng": 9.3238432
+  },
+  {
+    "_id": "R192775",
+    "name": "Senegal",
+    "type": "country",
+    "lat": 14.4750607,
+    "lng": -14.4529612
+  },
+  {
+    "_id": "R192777",
+    "name": "Sierra Leone",
+    "type": "country",
+    "lat": 8.6400349,
+    "lng": -11.8400269
+  },
+  {
+    "_id": "R192780",
+    "name": "Liberia",
+    "type": "country",
+    "lat": 5.7499721,
+    "lng": -9.3658524
+  },
+  {
+    "_id": "R192781",
+    "name": "Ghana",
+    "type": "country",
+    "lat": 8.0300284,
+    "lng": -1.0800271
+  },
+  {
+    "_id": "R192783",
+    "name": "Burkina Faso",
+    "type": "country",
+    "lat": 12.0753083,
+    "lng": -1.6880314
+  },
+  {
+    "_id": "R195267",
+    "name": "Angola",
+    "type": "country",
+    "lat": -11.8775768,
+    "lng": 17.5691241
+  },
+  {
+    "_id": "R1889339",
+    "name": "Botswana",
+    "type": "country",
+    "lat": -23.1681782,
+    "lng": 24.5928742
+  },
+  {
+    "_id": "R195272",
+    "name": "Zimbabwe",
+    "type": "country",
+    "lat": -18.4554963,
+    "lng": 29.7468414
+  },
+  {
+    "_id": "R2186646",
+    "name": "Antarctica",
+    "type": "region",
+    "lat": -72.8438691,
+    "lng": 0
+  },
+  {
+    "_id": "R2184073",
+    "name": "Groenland",
+    "type": "country",
+    "lat": 77.6192349,
+    "lng": -42.8125967
+  },
+  {
+    "_id": "R192778",
+    "name": "Guinee",
+    "type": "country",
+    "lat": 10.7226226,
+    "lng": -10.7083587
+  },
+  {
+    "_id": "R192784",
+    "name": "Benin",
+    "type": "country",
+    "lat": 9.5293472,
+    "lng": 2.2584408
+  },
+  {
+    "_id": "R2697338",
+    "name": "Rio de Janeiro",
+    "type": "city",
+    "lat": -22.9110137,
+    "lng": -43.2093727
+  },
+  {
+    "_id": "R170117",
+    "name": "Las Vegas",
+    "type": "city",
+    "lat": 36.1674263,
+    "lng": -115.1484131
+  },
+  {
+    "_id": "R114690",
+    "name": "Texas",
+    "type": "region",
+    "lat": 31.2638905,
+    "lng": -98.5456116
+  },
+  {
+    "_id": "R6571629",
+    "name": "Dallas",
+    "type": "city",
+    "lat": 32.7762719,
+    "lng": -96.7968559
+  },
+  {
+    "_id": "R131885",
+    "name": "New Orleans",
+    "type": "city",
+    "lat": 29.9574657,
+    "lng": -90.0629493
+  },
+  {
+    "_id": "R161943",
+    "name": "Mississippi",
+    "type": "region",
+    "lat": 32.9715285,
+    "lng": -89.7348497
+  },
+  {
+    "_id": "R122604",
+    "name": "Chicago",
+    "type": "city",
+    "lat": 41.8755616,
+    "lng": -87.6244212
+  },
+  {
+    "_id": "R324211",
+    "name": "Toronto",
+    "type": "city",
+    "lat": 43.6534817,
+    "lng": -79.3839347
+  },
+  {
+    "_id": "R175905",
+    "name": "New York",
+    "type": "city",
+    "lat": 40.7127281,
+    "lng": -74.0060152
+  },
+  {
+    "_id": "R1428125",
+    "name": "Canada",
+    "type": "country",
+    "lat": 61.0666922,
+    "lng": -107.991707
+  },
+  {
+    "_id": "R111968",
+    "name": "San Francisco",
+    "type": "city",
+    "lat": 37.7879363,
+    "lng": -122.4075201
+  },
+  {
+    "_id": "R207359",
+    "name": "Los Angeles",
+    "type": "city",
+    "lat": 34.0536923,
+    "lng": -118.2427676
+  },
+  {
+    "_id": "R1473947",
+    "name": "Egypte",
+    "type": "country",
+    "lat": 26.25,
+    "lng": 29.27
+  },
+  {
+    "_id": "R192789",
+    "name": "Soedan",
+    "type": "country",
+    "lat": 15.6,
+    "lng": 30
+  },
+  {
+    "_id": "seed-siberie",
+    "name": "Siberië",
+    "type": "region",
+    "lat": 60,
+    "lng": 105
+  }
+]

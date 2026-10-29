@@ -1,0 +1,24 @@
+# Lokale ontwikkelomgeving: app + MongoDB
+#   docker compose up --build      -> http://localhost:3000
+# Alleen de database (en de app lokaal met `npm run dev`):
+#   docker compose up -d mongo
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      MONGODB_URI: mongodb://mongo:27017/boekmap
+      CATALOGUS_KEY: ${CATALOGUS_KEY} # uit .env
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:8
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
